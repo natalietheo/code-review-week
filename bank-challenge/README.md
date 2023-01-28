@@ -18,30 +18,3 @@ date || credit || debit || balance
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
 
-##
-```javascript
-
-class BankAccount
-
-const customerRequest
-// asks customer if they would like to withdraw, deposit or print balance
-
-const deposit
-// adds to balance
-// must take into account today's date
-
-const withdraw
-// subtracts from balance
-// // must take into account today's date
-
-
-class = BankStatement
-
-const printStatement
-// prints bank statement
-
-const balance
-// prints balance
-
-
-```
