@@ -5,9 +5,16 @@ describe('BankAccount', () => {
         expect(accountOne.printBalance()).toEqual(0);
     })
 
-    it('a deposit of 100 adds 100 to currentBalance', () => {
+    it('adds 100 to currentBalance', () => {
         accountOne = new BankAccount()
         accountOne.depositMoney(100)
-        expect(accountOne.printBalance()).toEqual(100)
+        expect(accountOne.printBalance()).toBe(100)
     })
+    it('subtracts 50 from currentBalance', () => {
+        accountOne = new BankAccount()
+        accountOne.depositMoney(100)
+        accountOne.debitMoney(50)
+        expect(accountOne.printBalance()).toBe(50)
+    })
+
 })

@@ -1,25 +1,20 @@
+const credits = [];
+const debits = [];
 class BankAccount {
     constructor() {
-        this.currentBalance = 0;        
+        this.currentBalance = 0; 
+    }
+    depositMoney(number) {     
+        credits.push(number);
+    } 
+
+    debitMoney(number) {
+        debits.push(number);
     }
 
     printBalance() {
-        return this.currentBalance;
+        this.currentBalance = credits - debits
+        return this.currentBalance
     }
-        
-    depositMoney(number) { 
-    if (number > 0) {
-        this.currentBalance += number;
-    }
-    else {
-        throw new Error("Amount must be larger than 0");
-    } 
-    
-    
-
 }
-
-    
-}
-
 module.exports = BankAccount
