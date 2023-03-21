@@ -1,19 +1,49 @@
-const credits = [];
-const debits = [];
 class BankAccount {
     constructor() {
         this.currentBalance = 0; 
+        this.sumOfCredits = 0;
+        this.sumOfDebits = 0;
+        this.credits = []
+        this.debits = []
     }
-    depositMoney(number) {     
-        credits.push(number);
+
+    // pushes deposit amount into array of credits
+
+    depositMoney(creditAmount) {     
+        this.credits.push(creditAmount);
     } 
 
-    debitMoney(number) {
-        debits.push(number);
+    // pushes debit amount into array of debits
+
+    debitMoney(debitAmount) {
+        this.debits.push(debitAmount);
+    }
+
+    // gets totals for credits array and debits array
+
+    totalCredits() {
+       for (let i = 0; 
+        i < this.credits.length; 
+        i += 1) {
+        this.sumOfCredits += this.credits[i]
+    }
+    return this.sumOfCredits
+}
+
+    totalDebits() {
+        console.log("this is debits" + debits);
+        for (let i = 0; 
+            i < this.debits.length; i += 1) {
+        this.sumOfDebits += this.debits[i]
+    }
+        return this.sumOfDebits
+    }
+
+    calculateBalance() {
+        this.currentBalance = this.sumOfCredits - this.sumOfDebits
     }
 
     printBalance() {
-        this.currentBalance = credits - debits
         return this.currentBalance
     }
 }
