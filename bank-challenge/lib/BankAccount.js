@@ -1,50 +1,22 @@
 class BankAccount {
     constructor() {
-        this.currentBalance = 0; 
-        this.sumOfCredits = 0;
-        this.sumOfDebits = 0;
-        this.credits = []
-        this.debits = []
+        this.transactions = []
     }
 
-    // pushes deposit amount into array of credits
-
-    depositMoney(creditAmount) {     
-        this.credits.push(creditAmount);
+    transaction(amount) {     
+        this.transactions.push({
+            amount: amount, 
+            date: (new Date()),
+        });
     } 
 
-    // pushes debit amount into array of debits
-
-    debitMoney(debitAmount) {
-        this.debits.push(debitAmount);
-    }
-
-    // gets totals for credits array and debits array
-
-    totalCredits() {
-       for (let i = 0; 
-        i < this.credits.length; 
-        i += 1) {
-        this.sumOfCredits += this.credits[i]
-    }
-    return this.sumOfCredits
-}
-
-    totalDebits() {
-        console.log("this is debits" + debits);
-        for (let i = 0; 
-            i < this.debits.length; i += 1) {
-        this.sumOfDebits += this.debits[i]
-    }
-        return this.sumOfDebits
-    }
-
-    calculateBalance() {
-        this.currentBalance = this.sumOfCredits - this.sumOfDebits
-    }
-
     printBalance() {
-        return this.currentBalance
+        let currentBalance = 0
+        for (let i = 0; 
+            i < this.transactions.length; i += 1) {
+        currentBalance += this.transactions[i].amount
+    }
+        return currentBalance
     }
 }
 module.exports = BankAccount
