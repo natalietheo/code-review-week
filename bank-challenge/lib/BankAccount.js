@@ -3,7 +3,11 @@ class BankAccount {
         this.transactions = []
     }
 
-    transaction(amount) {     
+    debit(amount) {
+        this.credit(0-amount);
+    }
+
+    credit(amount) {     
         this.transactions.push({
             amount: amount, 
             date: (new Date()),
@@ -14,7 +18,8 @@ class BankAccount {
         let currentBalance = 0
         for (let i = 0; 
             i < this.transactions.length; i += 1) {
-        currentBalance += this.transactions[i].amount
+                transaction = this.transactions[i];
+        currentBalance += transaction.amount
     }
         return currentBalance
     }

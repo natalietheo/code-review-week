@@ -7,13 +7,13 @@ describe('BankAccount', () => {
 
     it('adds 100 to currentBalance', () => {
         const account = new BankAccount()
-        account.transaction(100)
+        account.credit(100)
         expect(account.printBalance()).toBe(100)
     })
 
     it('subtracts 50 from currentBalance', () => {
         const account = new BankAccount()
-        account.transaction(-50)
+        account.debit(50)
         expect(account.printBalance()).toBe(-50)
     })
 
